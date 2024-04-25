@@ -32,6 +32,12 @@ const questions = [
     }
 ];
 
+function generateLogo(answers) {
+    const { text, textColor, shape, shapeColor } = answers;
+    const logo = shapes.generate(text, textColor, shape, shapeColor);
+    writeToFile('logo.svg', logo);
+}
+
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
