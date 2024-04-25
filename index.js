@@ -49,7 +49,9 @@ function writeToFile(fileName, data) {
 }
 
 function init() {
-
+    inquirer.prompt(questions).then(generateLogo).catch(error => {
+        console.error(colors.red('Error occurred making your file:'), error);
+    });
 }
 
 init();
