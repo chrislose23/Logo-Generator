@@ -44,7 +44,7 @@ function writeToFile(fileName, data) {
             console.error(err);
             return;
         }
-        console.log(colors.green('Your logo has been created, Enjoy!'));
+        console.log(colors.green('Generated logo.svg'));
     });
 }
 
