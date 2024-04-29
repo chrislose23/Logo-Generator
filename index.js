@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const colors = require('colors');
 const fs = require('fs');
-const {Circle, Suqare, Triangle} = require('./lib/shapes.js');
+const {Circle, Triangle, Square} = require('./lib/shapes.js');
 
 const questions = [
     {
@@ -34,8 +34,25 @@ const questions = [
 
 function generateLogo(answers) {
     const { text, textColor, shape, shapeColor } = answers;
-    const logo = shapes.generate(text, textColor, shape, shapeColor);
-    writeToFile('logo.svg', logo);
+    let shapeObject;
+
+    switch (shape) {
+        case 'circle':
+            shapeObject = new Circle(shapeColor, text, textColor);
+            break;
+        case 'triangle':
+            shapeObject = new Triangle(shapeColor, text, textColor);
+            break;
+        case 'square':
+            shapeObject = new Square(shapeColor, text, textColor);
+            break;
+        default:
+            throw new Error('Invalid shape type');
+    }
+
+    const logoSVG = shapeObject.generateSVG();
+
+    writeToFile('logo.svg', logoSVG);
 }
 
 function writeToFile(fileName, data) {
