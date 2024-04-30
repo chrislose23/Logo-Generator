@@ -1,8 +1,10 @@
+// importing required classes
 const inquirer = require('inquirer');
 const colors = require('colors');
 const fs = require('fs');
 const {Circle, Triangle, Square} = require('./lib/shapes.js');
 
+// Questions to ask in inquirer prompt
 const questions = [
     {
         type: 'input',
@@ -32,6 +34,7 @@ const questions = [
     }
 ];
 
+// The function that generates the logs
 function generateLogo(answers) {
     const { text, textColor, shape, shapeColor } = answers;
     let shapeObject;
@@ -54,7 +57,7 @@ function generateLogo(answers) {
 
     writeToFile('logo.svg', logoSVG);
 }
-
+// function that creats the file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -64,11 +67,11 @@ function writeToFile(fileName, data) {
         console.log(colors.green('Generated logo.svg'));
     });
 }
-
+// the init function
 function init() {
     inquirer.prompt(questions).then(generateLogo).catch(error => {
         console.error(colors.red('Error occurred making your file:'), error);
     });
 }
-
+// calls the inti function
 init();
