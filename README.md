@@ -17,7 +17,7 @@ This application will allow you to quickly generate a simple logo for you to use
 
 Here is a walkthrough video I created to assist anyone in the install process or running the application.
 
-[Video Walkthrough]()
+[Video Walkthrough](https://app.screencastify.com/v3/watch/MVp6yyV5kjEfhhpxuQ7b)
 
 ## Installation
 
